@@ -16,6 +16,8 @@ tags:
   externalDocs:
     description: Entenda o GTFS
     url: http://gtfs.org
+- name: Manutenção
+  description: Informações úteis para a manutenção do SIGMOB
 paths:
   /get_trips.rule:
     get:
@@ -44,8 +46,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Serviços
+      description: Retorna os serviços cadastrados no SIGMOB
       operationId: get_routes
       parameters:
       - name: sys
@@ -67,8 +69,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Linhas
+      description: Retorna as linhas cadastradas no SIGMOB
       operationId: get_linhas
       parameters:
       - name: sys
@@ -90,8 +92,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Agência
+      description: Retorna as agências cadastradas no SIGMOB
       operationId: get_agency
       parameters:
       - name: sys
@@ -113,8 +115,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Tempo de parada
+      description: Retorna tempo de parada por itinerário cadastrado no SIGMOB
       operationId: get_stop_times
       parameters:
       - name: sys
@@ -136,8 +138,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Paradas
+      description: Retorna as paradas cadastradas no SIGMOB
       operationId: get_stops
       parameters:
       - name: sys
@@ -166,8 +168,8 @@ paths:
     get:
       tags:
       - GTFS
-      summary: Itinerários
-      description: Retorna itinerários cadastrados no SIGMOB
+      summary: Traçados
+      description: Retorna os traçados cadastrados no SIGMOB
       operationId: get_shapes
       parameters:
       - name: sys
@@ -185,6 +187,75 @@ paths:
           type: integer
           example: 0
         description: paginação
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_trip_stops.rule:
+    get:
+      tags:
+      - Manutenção
+      summary: Número de paradas por itinerário
+      description: Número de paradas por itinerário
+      operationId: get_trip_stops
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_trip_no_stops.rule:
+    get:
+      tags:
+      - Manutenção
+      summary: Itinerários sem paradas
+      description: Itinerários sem paradas
+      operationId: get_trip_no_stops
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_trip_no_shapes.rule:
+    get:
+      tags:
+      - Manutenção
+      summary: Itinerários sem traçado
+      description: Itinerários sem traçado
+      operationId: get_trip_no_shapes
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
       responses:
         200:
           description: successful operation
