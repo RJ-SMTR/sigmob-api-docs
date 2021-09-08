@@ -6,7 +6,7 @@ info:
     do Rio de Janeiro. 
      
     Acesse o [SIGMOB](http://jeap.rio.rj.gov.br/MOB/open.do?sys=MOB).
-    Edite esta documentação no [GitHub](https://github.com/RJ-SMTR/sigmob-api-docs)'
+    Edite esta documentação no [GitHub](https://github.com/RJ-SMTR/sigmob-api-docs).
   version: 1.0.0
 servers:
 - url: https://jeap.rio.rj.gov.br/MOB
