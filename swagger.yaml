@@ -111,6 +111,75 @@ paths:
         400:
           description: Invalid status value
           content: {}
+  /get_frequencies.rule:
+    get:
+      tags:
+      - GTFS
+      summary: Agência
+      description: Retorna as frequencias das trips cadastradas no SIGMOB
+      operationId: get_frequencies
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_calendar.rule:
+    get:
+      tags:
+      - GTFS
+      summary: Agência
+      description: Retorna as calendários cadastradas no SIGMOB
+      operationId: get_calendar
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_frota_determinada.rule:
+    get:
+      tags:
+      - GTFS
+      summary: Agência
+      description: Retorna as frota determinada das routes cadastradas no SIGMOB
+      operationId: get_frota_determinada
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
   /get_stop_times.rule:
     get:
       tags:
@@ -141,6 +210,36 @@ paths:
       summary: Paradas
       description: Retorna as paradas cadastradas no SIGMOB
       operationId: get_stops
+      parameters:
+      - name: sys
+        in: query
+        description: Parametro padrão
+        required: true
+        schema:
+          type: string
+          enum:
+          - MOB
+      - name: INDICE
+        in: query
+        required: true
+        schema:
+          type: integer
+          example: 0
+        description: paginação
+      responses:
+        200:
+          description: successful operation
+          content: {}
+        400:
+          description: Invalid status value
+          content: {}
+  /get_stops_details.rule:
+    get:
+      tags:
+      - GTFS
+      summary: Paradas
+      description: Retorna as paradas cadastradas no SIGMOB com detalhes dos valores
+      operationId: get_stops_details
       parameters:
       - name: sys
         in: query
